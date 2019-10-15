@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title=title
+
+    <!-- UIkit CSS -->
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css")
+    link(rel="stylesheet" href="/stylesheets/style.css")
+  body
+
+    nav.uk-navbar-container(uk-navbar='')
+      .uk-navbar-left
+        ul.uk-navbar-nav
+          if user 
+            li
+              a(href='#')=user.username
+              .uk-navbar-dropdown
+                ul.uk-nav.uk-navbar-dropdown-nav
+                  li
+                    a(href='/profile') Profile
+                  li
+                    a(href='/logout') Logout
+          else 
+            li.uk-active
+                 a(href='/signup') Signup
+            li.uk-active
+                 a(href='/login') Login
+
+      .uk-navbar-right
+        ul.uk-navbar-nav
+          li
+            a(href='#') Parent
+            .uk-navbar-dropdown
+              ul.uk-nav.uk-navbar-dropdown-nav
+                li.uk-active
+                  a(href='#') Active
+                li
+                  a(href='#') Item
+                li.uk-nav-header Header
+                li
+                  a(href='#') Item
+                li
+                  a(href='#') Item
+                li.uk-nav-divider
+                li
+                  a(href='#') Item
+
+
+    block content
+
+    <!-- UIkit JS -->
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js")
+    script(src="/javascripts/script.js")

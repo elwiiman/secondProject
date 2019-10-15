@@ -1,0 +1,29 @@
+mixin authform(register, error)
+  form(class="authform" action=register ? "/signup" : "/login" class="uk-form-stacked" method="post")
+      .uk-margin
+        label(class="uk-form-label" for="username")=register ? "Username" : "Username or Email"
+        .uk-inline
+          span.uk-form-icon(uk-icon='icon: user')
+          input.uk-input(type='text' name="username")
+      if register    
+        .uk-margin
+          label(class="uk-form-label" for="email") Email
+          .uk-inline
+            span.uk-form-icon(uk-icon='icon: mail')
+            input.uk-input(type='email' name="email")
+      .uk-margin
+        label(class="uk-form-label") Password
+        .uk-inline
+          span.uk-form-icon(uk-icon='icon: lock')
+          input.uk-input(type='password' name="password")
+      if register    
+        .uk-margin
+          label(class="uk-form-label") Confirm password
+          .uk-inline
+            span.uk-form-icon(uk-icon='icon: lock')
+            input.uk-input(type='password' name="confirmPass")
+      if error
+        .uk-flex.uk-flex-center.uk-alert-danger.uk-width-1-1(uk-alert)
+          p.authErr #{error}
+      .uk-margin.uk-flex.uk-flex-center   
+          button.uk-button.uk-button-primary(type="submit")=register ? "Register" : "Login"
