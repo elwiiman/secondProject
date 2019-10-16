@@ -23,6 +23,11 @@ const userSchema = new Schema(
       enum: ["pending", "confirmed"],
       default: "pending"
     },
+      role: {
+        type: String,
+        enum: ["tatuador", "user"],
+        default: "user"
+      },
     user_picture: String
   },
   { timestamps: true }
