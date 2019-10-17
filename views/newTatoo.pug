@@ -1,0 +1,36 @@
+extends layout
+block content
+  .uk-section
+    .uk-container.uk-container-small
+      form(action="/tatoo/new"  enctype="multipart/form-data" method="post")
+        fieldset.uk-fieldset
+          //- legend.uk-legend New Tatoo Information
+          if errorMessage
+            .uk-flex.uk-flex-center.uk-alert-danger.uk-width-1-1(uk-alert)
+              p.authErr #{errorMessage}
+          .uk-margin
+            label(class="uk-form-label" for="exec_time") Name
+            input.uk-input(type='text', placeholder='Name for tatoo' name="name")
+          .uk-margin
+            label(class="uk-form-label" for="price") Price
+            input.uk-input(type='text', placeholder='Price' name="price")
+          .uk-margin
+            label(class="uk-form-label" for="currency") Currency
+            select.uk-select(name="currency")
+              option(value="MXN") MXN
+              option(value="USD") USD 
+          .uk-margin
+            label(class="uk-form-label" for="exec_time") Execution Time
+            select.uk-select(name="exec_time")
+              option(value="1") 1 Hour
+              option(value="1.5") 1.5 Hours
+              option(value="2") 2.0 Hours
+              option(value="2.5") 2.5 Hours
+              option(value="3") 3 Hours
+          .uk-margin
+            textarea.uk-textarea(rows='5', placeholder='Short description for tatoo' name="description")
+          .uk-margin(uk-margin='')
+            div(uk-form-custom='target: true')
+              input(type='file' name="images" multiple)
+              input.uk-input.uk-form-width-medium(type='text', placeholder='Select file', disabled='')
+        button.uk-button.uk-button-default Submit
