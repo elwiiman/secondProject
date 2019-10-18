@@ -12,8 +12,7 @@ mixin card(tatoo)
           ul.uk-slideshow-items
             each image in tatoo.images
               li
-                .uk-cover-container
-                  img(src=image alt='' uk-cover)
+                img(src=image alt='' uk-cover)
             
           a.uk-position-center-left.uk-position-small.uk-hidden-hover(href='#', uk-slidenav-previous='', uk-slideshow-item='previous')
           a.uk-position-center-right.uk-position-small.uk-hidden-hover(href='#', uk-slidenav-next='', uk-slideshow-item='next')
@@ -21,3 +20,5 @@ mixin card(tatoo)
           | #{tatoo.description}
       .uk-card-footer
         a.uk-button.uk-button-text(href='#') Read more
+
+        //- for init commit
