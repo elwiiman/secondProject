@@ -1,6 +1,6 @@
 const passport = require("../helpers/passport");
 const User = require("../models/User");
-const nodemailer = require("nodemailer")
+const { send } = require("../helpers/mailer");
 
 exports.login = (req, res) => {
   passport.authenticate("local", (err, user, info = {}) => {
@@ -33,17 +33,17 @@ exports.signup = (req, res) => {
   User.register({ username, email, role }, password)
     .then(usr => {
       ///LINES FOR MAILING - TO CONFIRM ACCOUNT
-      // const options = {
-      //   filename: "register",
-      //   email: usr.email,
-      //   message: "Valida tu correo",
-      //   subject: "Confirma correo"
-      // };
-      // send(options);
-      req.login(usr, error => {
-        if (error) return res.render("signup", { title: "SignUp", error });
+       const options = {
+         filename: "register",
+         email: usr.email,
+         message: "Valida tu correo",
+         subject: "Confirma correo"
+       };
+       send(options);
+      req.login(usr, errorMessage => {
+        if (errorMessage) return res.render("register", { title: "SignUp", errorMessage });
         res.redirect("/home");
       });
     })
-    .catch(error => res.render("signup", { title: "SignUp", error }));
+    .catch(errorMessage => res.render("register", { title: "SignUp", errorMessage }));
 };

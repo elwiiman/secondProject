@@ -15,4 +15,16 @@ const generateHTML = (filename,options) => {
   return html(options);
 };
 
+exports.send= options => {
+  const html=generateHTML(options.filename,options);
+  const mailOptions= {
+    from:"Tatuajes shop<noreply@tatuajes.com>",
+    to: options.email,
+    subject:options.subject,
+    message:options.message,
+    html 
+  };
+  return transporter.sendMail(mailOptions);
+};
+
 
