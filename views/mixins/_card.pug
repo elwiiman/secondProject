@@ -1,14 +1,25 @@
 mixin card(tatoo)
-    
-    .uk-card.uk-card-default(class='uk-width-1-3@m')
+  div
+    .uk-card.uk-card-default
       .uk-card-header
-        .uk-grid-small.uk-flex-middle.uk-margin(uk-grid='')
+        .uk-grid-small.uk-flex-middle(uk-grid='')
+          .uk-width-auto
           .uk-width-expand
-            h3.uk-card-title.uk-margin-remove-bottom #{tatoo.name}
+            div(class="tatoo-title-container")
+              h3.uk-card-title.uk-margin-remove-bottom #{tatoo.name}
+              div(class="tatoo-user-actions")
+                a(href='', uk-icon='pencil' ratio=0.9)
+                a(href='', uk-icon='trash'  ratio=0.9)
             p.uk-text-meta.uk-margin-remove-top
               time(datetime=`${tatoo.updatedAt}`) Updated: #{help.formatDate(tatoo.updatedAt)}
+              p Price: #{tatoo.price.value} #{tatoo.price.currency}
       .uk-card-body
-        p
+        div(uk-lightbox='')
+          a(href=tatoo.image data-caption=`${tatoo.price.value} ${tatoo.price.currency}`)
+            .uk-height-medium.uk-flex.uk-flex-center.uk-flex-middle.uk-background-cover.uk-light(data-src=tatoo.image, uk-img='')
+              h1.tobehidden Background
+      .uk-card-footer.uk-flex-center           
+        p.tatoo-description
           | #{tatoo.description}
-      .uk-card-footer
-        a.uk-button.uk-button-text(href='#') Read more
+      //- .uk-card-footer Esto podra servir para la vista del comprador
+      //-   a.uk-button.uk-button-text(href='#') Read more

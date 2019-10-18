@@ -11,10 +11,26 @@ a {
 .authform {
   width: 40%; }
 
-.authErr {
+.authErr,
+.tatoo-description {
   text-align: center; }
 
 .tobehidden {
   display: none; }
+
+.tatoo-title-container {
+  display: flex;
+  flex-flow: row;
+  align-content: center; }
+
+.tatoo-title-container h3 {
+  max-width: 70%; }
+
+.tatoo-user-actions {
+  position: absolute;
+  right: 30px; }
+
+.tatoo-user-actions a {
+  padding-right: 3px; }
 
 /*# sourceMappingURL=style.css.map */
