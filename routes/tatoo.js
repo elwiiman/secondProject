@@ -10,15 +10,15 @@ router.get("/new", isAuth, (req, res) => {
   res.render("newTatoo", { title: "New Tatoo", create: true, user });
 });
 
-router.post("/new", isAuth, uploader.array("images"), (req, res) => {
+router.post("/new", isAuth, uploader.single("image"), (req, res) => {
   const { user } = req;
   const {
     user: { _id: authorArtist }
   } = req;
 
   const { name, price: value, currency, exec_time, description } = req.body;
-  let images = req.files;
-  if (!name || !value || !description || !images) {
+  let image = req.file;
+  if (!name || !value || !description || !image) {
     let errorMessage = "All fields must be filled";
     return res.render("newTatoo", {
       title: "New Tatoo",
@@ -27,14 +27,14 @@ router.post("/new", isAuth, uploader.array("images"), (req, res) => {
       errorMessage
     });
   } else {
-    images = req.files.map(file => file.secure_url);
+    image = req.file.secure_url;
 
     const tatoo = {
       authorArtist,
       price: { value, currency },
       name,
       description,
-      images,
+      image,
       exec_time
     };
 

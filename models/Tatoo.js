@@ -11,9 +11,9 @@ const tatooSchema = new Schema(
       type: String,
       required: true
     },
-    images: {
-      type: [String],
-      minlength: 1
+    image: {
+      type: String,
+      required: true
     },
     price: {
       value: { type: String, required: true },
