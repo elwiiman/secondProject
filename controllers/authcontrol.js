@@ -1,5 +1,6 @@
 const passport = require("../helpers/passport");
 const User = require("../models/User");
+const nodemailer = require("nodemailer")
 
 exports.login = (req, res) => {
   passport.authenticate("local", (err, user, info = {}) => {
