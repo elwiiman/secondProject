@@ -30,6 +30,13 @@ a {
   position: absolute;
   right: 30px; }
 
+.tatoo-author-card {
+  position: absolute;
+  right: 30px; }
+
+.tatoo-author-card h6 {
+  font-size: 1em; }
+
 .tatoo-user-actions a {
   padding-right: 3px; }
 
