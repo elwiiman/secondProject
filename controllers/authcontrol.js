@@ -29,21 +29,45 @@ exports.signup = (req, res) => {
     let error = "All fields must be filled";
     return res.render("signup", { title: "SignUp", error });
   }
-
+  if(password) {
+    function isStrongPwd2(password) {
+ 
+      var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  
+      var lowercase = "abcdefghijklmnopqrstuvwxyz";
+  
+      var digits = "0123456789";
+  
+      var splChars ="!@#$%&*()";
+  
+      var ucaseFlag = contains(password, uppercase);
+  
+      var lcaseFlag = contains(password, lowercase);
+  
+      var digitsFlag = contains(password, digits);
+  
+      var splCharsFlag = contains(password, splChars);
+  
+      if(password.length>=8 && ucaseFlag && lcaseFlag && digitsFlag && splCharsFlag)
+            return true;
+      else
+            return false;
+    }
+  }
   User.register({ username, email, role }, password)
     .then(usr => {
       ///LINES FOR MAILING - TO CONFIRM ACCOUNT
        const options = {
-         filename: "register",
+         filename: "registration",
          email: usr.email,
          message: "Valida tu correo",
          subject: "Confirma correo"
        };
        send(options);
       req.login(usr, errorMessage => {
-        if (errorMessage) return res.render("register", { title: "SignUp", errorMessage });
+        if (errorMessage) return res.render("registration", { title: "SignUp", errorMessage });
         res.redirect("/home");
       });
     })
-    .catch(errorMessage => res.render("register", { title: "SignUp", errorMessage }));
+    .catch(errorMessage => res.render("registration", { title: "SignUp", errorMessage }));
 };
