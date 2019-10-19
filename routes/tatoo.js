@@ -4,6 +4,12 @@ const { isAuth } = require("../helpers/middlewaresAuth");
 const uploader = require("../helpers/multer");
 const Tatoo = require("../models/Tatoo");
 
+options = {
+  currency: ["MXN", "USD"],
+  exec_time: [1, 1.5, 2, 2.5, 3]
+};
+
+///NEW TATOO ROUTES
 router.get("/new", isAuth, (req, res) => {
   const { user } = req;
 
@@ -53,6 +59,17 @@ router.post("/new", isAuth, uploader.single("image"), (req, res) => {
   }
 });
 
+//EDIT ROUTES
+router.get("/edit/:id", (req, res) => {
+  const { id } = req.params;
+  Tatoo.findById(id)
+    .then(tatoo => {
+      res.render("editTatoo", { title: "Edit Tatoo", tatoo, options });
+    })
+    .catch(err => console.log(err));
+});
+
+/// DELETE TATOO ROUTE
 router.get("/delete/:id", (req, res) => {
   const { id } = req.params;
   console.log("this is id", id);
