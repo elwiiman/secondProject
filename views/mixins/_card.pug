@@ -9,7 +9,7 @@ mixin card(tatoo)
               h3.uk-card-title.uk-margin-remove-bottom #{tatoo.name}
               div(class="tatoo-user-actions")
                 a(href='', uk-icon='pencil' ratio=0.9)
-                a(href='', uk-icon='trash'  ratio=0.9)
+                a(href=`/tatoo/delete/${tatoo._id}`, uk-icon='trash'  ratio=0.9)
             p.uk-text-meta.uk-margin-remove-top
               time(datetime=`${tatoo.updatedAt}`) Updated: #{help.formatDate(tatoo.updatedAt)}
               p Price: #{tatoo.price.value} #{tatoo.price.currency}

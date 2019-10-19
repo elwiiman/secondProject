@@ -38,8 +38,6 @@ router.post("/new", isAuth, uploader.single("image"), (req, res) => {
       exec_time
     };
 
-    console.log(tatoo);
-
     Tatoo.create(tatoo)
       .then(newtatoo => {
         res.redirect("/profile");
@@ -53,6 +51,17 @@ router.post("/new", isAuth, uploader.single("image"), (req, res) => {
         });
       });
   }
+});
+
+router.get("/delete/:id", (req, res) => {
+  const { id } = req.params;
+  console.log("this is id", id);
+  Tatoo.findByIdAndDelete(id)
+    .then(() => {
+      console.log("iamhere");
+      res.redirect("/profile");
+    })
+    .catch(err => res.redirect("/profile"));
 });
 
 module.exports = router;

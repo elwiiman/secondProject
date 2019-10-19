@@ -20,7 +20,6 @@ router.get("/profile", isAuth, (req, res, next) => {
   let help = {};
   help.formatDate = formatDate;
   Tatoo.find({ authorArtist: user._id }).then(tatoos => {
-    console.log(tatoos);
     res.render("profile", { title: "Profile", user, tatoos, help });
   });
 
