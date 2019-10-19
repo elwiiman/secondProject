@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { isAuth } = require("../helpers/middlewaresAuth");
+const { isAuth, checkRole } = require("../helpers/middlewaresAuth");
 const uploader = require("../helpers/multer");
 const Tatoo = require("../models/Tatoo");
 
