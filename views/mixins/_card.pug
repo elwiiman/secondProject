@@ -13,6 +13,7 @@ mixin card(tatoo)
             p.uk-text-meta.uk-margin-remove-top
               time(datetime=`${tatoo.updatedAt}`) Updated: #{help.formatDate(tatoo.updatedAt)}
               p Price: #{tatoo.price.value} #{tatoo.price.currency}
+              p Execution Time: #{tatoo.exec_time} hrs
       .uk-card-body
         div(uk-lightbox='')
           a(href=tatoo.image data-caption=`${tatoo.price.value} ${tatoo.price.currency}`)

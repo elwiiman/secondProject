@@ -2,7 +2,7 @@ extends layout
 block content
   .uk-section
     .uk-container.uk-container-small
-      form(action="/tatoo/edit"  enctype="multipart/form-data" method="post")
+      form(action=`/tatoo/edit/${tatoo._id}`  enctype="multipart/form-data" method="post")
         fieldset.uk-fieldset
           //- legend.uk-legend New Tatoo Information
           if errorMessage
@@ -22,14 +22,16 @@ block content
           .uk-margin
             label(class="uk-form-label" for="exec_time") Execution Time
             select.uk-select(name="exec_time")
-              each opt in options.exec_time
-                option(value=opt, selected=tatoo.price.exec_time === opt ? true : false)=opt
+              each option in options.exec_time
+                option(value=option, selected=tatoo.exec_time === option ? true : false)=option
           .uk-margin
-            textarea.uk-textarea(id="description-text-area" rows='5', placeholder='Short description for tatoo' name="description" )
-          .uk-margin(uk-margin='')
-            div(uk-form-custom='target: true')
-              input(type='file' name="image"  uk-tooltip="Upload a single image")
-              input.uk-input.uk-form-width-medium(type='text', placeholder='Select file(s)', disabled='')
+            textarea.uk-textarea(id="description-text-area" rows='5', placeholder='Short description for tatoo' name="description")
+          div
+            button.uk-button.uk-button-default(type='button', uk-toggle='target: #upload-image') Click here if you want to substitute current image
+            .uk-margin(uk-margin='' id="upload-image" hidden aria-hidden="true")
+              div(uk-form-custom='target: true')
+                input(type='file' name="image"  uk-tooltip="Upload a substitute image")
+                input.uk-input.uk-form-width-medium(type='text', placeholder='Select file(s)', disabled='')
         button.uk-button.uk-button-default Update
   script.
     let textArea = document.getElementById("description-text-area");
