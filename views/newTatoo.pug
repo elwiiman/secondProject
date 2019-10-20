@@ -28,6 +28,14 @@ block content
               option(value="2.5") 2.5 Hours
               option(value="3") 3 Hours
           .uk-margin
+            label(class="uk-form-label" for="size") Size
+              select.uk-select(name="size")
+                option(value="1 - 5 cm") 1 - 5 cm
+                option(value="6 - 10 cm") 6 - 10 cm
+                option(value="11 - 20 cm") 11 - 20 cm
+                option(value="21 - 30 cm") 21 - 30 cm
+                option(value="+30 cm") +30 cm                       
+          .uk-margin
             textarea.uk-textarea(rows='5', placeholder='Short description for tatoo' name="description")
           .uk-margin(uk-margin='')
             div(uk-form-custom='target: true')

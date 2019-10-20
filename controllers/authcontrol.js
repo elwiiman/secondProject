@@ -41,7 +41,7 @@ exports.signup = (req, res) => {
       // send(options);
       req.login(usr, error => {
         if (error) return res.render("signup", { title: "SignUp", error });
-        res.redirect("/home");
+        res.redirect("/profile");
       });
     })
     .catch(error => res.render("signup", { title: "SignUp", error }));

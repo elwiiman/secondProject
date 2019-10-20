@@ -17,16 +17,19 @@ mixin card(tatoo,fan)
             p.uk-text-meta.uk-margin-remove-top
               time(datetime=`${tatoo.updatedAt}`) Updated: #{help.formatDate(tatoo.updatedAt)}
               p Price: #{tatoo.price.value} #{tatoo.price.currency}
-              p Execution Time: #{tatoo.exec_time} hrs
+              if !fan
+                p Execution Time: #{tatoo.exec_time} hrs
+                p Size: #{tatoo.size}
       .uk-card-body
         div(uk-lightbox='')
           a(href=tatoo.image data-caption=`${tatoo.price.value} ${tatoo.price.currency}`)
             .uk-height-medium.uk-flex.uk-flex-center.uk-flex-middle.uk-background-cover.uk-light(data-src=tatoo.image, uk-img='')
               h1.tobehidden Background
-      .uk-card-footer.uk-flex-center           
-        p.tatoo-description
-          | #{tatoo.description}
+      if !fan        
+        .uk-card-footer.uk-flex-center           
+          p.tatoo-description
+            | #{tatoo.description}
       if fan
         .uk-card-footer 
           .uk-flex.uk-flex-center
-            <button class="uk-button uk-button-primary">Buy</button>
+            a(href=`/tatoo/moreinfo/${tatoo._id}` class="uk-button uk-button-primary") View More +

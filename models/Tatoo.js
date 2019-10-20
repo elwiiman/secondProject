@@ -5,7 +5,8 @@ const tatooSchema = new Schema(
   {
     authorArtist: {
       type: Schema.Types.ObjectId,
-      ref: "User"
+      ref: "User",
+      unique: true
     },
     name: {
       type: String,
@@ -35,6 +36,19 @@ const tatooSchema = new Schema(
       type: Number,
       enum: [1, 1.5, 2, 2.5, 3],
       required: true
+    },
+    size: {
+      type: String,
+      enum: ["1 - 5 cm", "6 - 10 cm", "11 - 20 cm", "21 - 30 cm", "+30 cm"],
+      required: true
+    },
+    acquiredBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      unique: true
+    },
+    body_part: {
+      type: String
     }
   },
   { timestamps: true }

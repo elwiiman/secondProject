@@ -6,7 +6,8 @@ const Tatoo = require("../models/Tatoo");
 
 options = {
   currency: ["MXN", "USD"],
-  exec_time: [1, 1.5, 2, 2.5, 3]
+  exec_time: [1, 1.5, 2, 2.5, 3],
+  size: ["1 - 5 cm", "6 - 10 cm", "11 - 20 cm", "21 - 30 cm", "+30 cm"]
 };
 
 ///NEW TATOO ROUTES
@@ -22,7 +23,14 @@ router.post("/new", isAuth, uploader.single("image"), (req, res) => {
     user: { _id: authorArtist }
   } = req;
 
-  const { name, price: value, currency, exec_time, description } = req.body;
+  const {
+    name,
+    price: value,
+    currency,
+    description,
+    exec_time,
+    size
+  } = req.body;
   let image = req.file;
   if (!name || !value || !description || !image) {
     let errorMessage = "All fields must be filled";
@@ -41,7 +49,8 @@ router.post("/new", isAuth, uploader.single("image"), (req, res) => {
       name,
       description,
       image,
-      exec_time
+      exec_time,
+      size
     };
 
     Tatoo.create(tatoo)
@@ -49,6 +58,7 @@ router.post("/new", isAuth, uploader.single("image"), (req, res) => {
         res.redirect("/profile");
       })
       .catch(error => {
+        console.log(error);
         res.render("newTatoo", {
           title: "New Tatoo",
           user,
@@ -76,7 +86,14 @@ router.post("/edit/:id", isAuth, uploader.single("image"), (req, res) => {
     user: { _id: authorArtist }
   } = req;
 
-  const { name, price: value, currency, exec_time, description } = req.body;
+  const {
+    name,
+    price: value,
+    currency,
+    description,
+    exec_time,
+    size
+  } = req.body;
   let image;
 
   if (!name || !value || !description) {
@@ -100,7 +117,8 @@ router.post("/edit/:id", isAuth, uploader.single("image"), (req, res) => {
             name,
             description,
             image,
-            exec_time
+            exec_time,
+            size
           };
 
           Tatoo.findByIdAndUpdate(id, { $set: tatoo }, { new: true }).then(
@@ -140,6 +158,43 @@ router.get("/delete/:id", isAuth, (req, res) => {
       res.redirect("/profile");
     })
     .catch(err => res.redirect("/profile"));
+});
+
+//MORE INFO TATOO ROUTE
+router.get("/moreinfo/:id", isAuth, (req, res) => {
+  const { id } = req.params;
+  const { user } = req;
+  Tatoo.findById(id)
+    .then(tatoo => {
+      res.render("buyTatoo", { title: "Buy tatoo", tatoo, user });
+    })
+    .catch(err => {
+      console.log("err");
+    });
+});
+
+//BUY TATOO ROUTE
+router.post("/buy/:id", isAuth, (req, res) => {
+  const { id } = req.params;
+  const { user: acquiredBy } = req;
+  const { body_part } = req.body;
+  const status = "sold";
+
+  console.log(body_part);
+  console.log(req.body);
+
+  tatoo = {
+    status,
+    acquiredBy,
+    body_part
+  };
+
+  Tatoo.findByIdAndUpdate(id, { $set: tatoo }, { new: true })
+    .then(tatoo => {
+      console.log("compra efectuada");
+      res.redirect("/schedule");
+    })
+    .catch(err => console.log("err"));
 });
 
 module.exports = router;

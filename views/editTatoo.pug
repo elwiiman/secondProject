@@ -23,7 +23,14 @@ block content
             label(class="uk-form-label" for="exec_time") Execution Time
             select.uk-select(name="exec_time")
               each option in options.exec_time
-                option(value=option, selected=tatoo.exec_time === option ? true : false)=option
+                -let auxText=''
+                -auxText = option === 1 ? "Hour" : "Hours"
+                option(value=option, selected=tatoo.exec_time === option ? true : false)=option + " " + auxText
+          .uk-margin
+            label(class="uk-form-label" for="size") Size
+              select.uk-select(name="size")
+                each option in options.size
+                  option(value=option, selected=tatoo.size === option ? true : false)=option
           .uk-margin
             textarea.uk-textarea(id="description-text-area" rows='5', placeholder='Short description for tatoo' name="description")
           div
