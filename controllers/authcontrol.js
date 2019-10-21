@@ -29,9 +29,7 @@ exports.signup = (req, res) => {
     let error = "All fields must be filled";
     return res.render("register", { title: "SignUp", error });
   }
-  if(password) {
-    
-  }
+ 
     
 
 
