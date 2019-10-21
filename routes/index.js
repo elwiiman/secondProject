@@ -24,6 +24,7 @@ router.get("/profile", isAuth, (req, res, next) => {
     res.render("profile", { title: "Profile", user, tatoos, help });
   });
 
+
   router.get("/card", isAuth, (req, res, next) => {
     const { user } = req;
     res.render("pruebaCard", { user });

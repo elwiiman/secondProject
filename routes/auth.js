@@ -4,7 +4,7 @@ const { toProfile } = require("../helpers/middlewaresAuth");
 const authcontrollers = require("../controllers/authcontrol");
 
 router.get("/signup", toProfile, (req, res) => {
-  res.render("signup", { title: "SignUp" });
+  res.render("register", { title: "Signup" });
 });
 
 router.post("/signup", toProfile, authcontrollers.signup);
