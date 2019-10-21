@@ -189,6 +189,8 @@ router.post("/buy/:id", isAuth, (req, res) => {
     body_part
   };
 
+  //
+
   Tatoo.findByIdAndUpdate(id, { $set: tatoo }, { new: true })
     .then(tatoo => {
       console.log("compra efectuada");
