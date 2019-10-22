@@ -37,4 +37,8 @@ router.get("/profile", isAuth, (req, res, next) => {
   }
 });
 
+router.get("/calendar",isAuth,(req,res)=>{
+  res.render("calendar")
+})
+
 module.exports = router;
