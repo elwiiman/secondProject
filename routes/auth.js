@@ -47,15 +47,12 @@ result.loginTokenPost = (req, res) => {
 }
 
 result.signUpGet = (req, res) => {
-    //console.log("req : " , req);
     res.render('signup', {
       user: req.user
-       //console.log("user : " ,user)
     });
 }
 
 result.signUpPost = (req, res, next) => {
-//console.log("@BODY--", req.body);
 var arr = [];
 
 async.waterfall([
@@ -71,7 +68,6 @@ async.waterfall([
         email: req.body.email,
         password: req.body.password
       });
-   //push user data into array
     arr.push(user)
 
       user.resetPasswordToken = token;
@@ -86,13 +82,12 @@ async.waterfall([
 
       var email = new sendgrid.Email({
           to: user.email,
-          from: 'your email address',
+          from: 'veganvita@gmail.com',
           subject: 'Signup Varification',
           html: 'Signup Varification.\n\n' +
           'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
           '<a href="http://' + req.headers.host + '/login/' + token + '">Varify your Account</a>\n\n' +
           'If you did not request this, please ignore this email and your password will remain unchanged.\n',
-     // html: '<b> varify your email?</b>'
        });
 
       sendgrid.send(email, (err, json) => {
