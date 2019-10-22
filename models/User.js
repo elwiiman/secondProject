@@ -18,7 +18,10 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    status: {
+    resetPasswordToken:String,
+    resetPasswordExpires:Date,
+      
+      status: {
       type: String,
       enum: ["pending", "confirmed"],
       default: "pending"
