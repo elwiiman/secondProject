@@ -11,3 +11,12 @@ exports.toProfile = (req, res, next) => {
   }
   return next();
 };
+
+exports.checkRole = roles => {
+  return (req, res, next) => {
+    if (roles.includes(req.user.role)) {
+      return next();
+    }
+    return res.redirect("/login");
+  };
+};

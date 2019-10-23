@@ -1,0 +1,55 @@
+extends layout
+block content
+  .uk-section
+    .uk-container
+      a(href="/profile").uk-button.uk-button-default Back
+      .uk-text-center(uk-grid='')
+        .uk-width-3-5
+          .uk-card.uk-card-default.uk-card-body
+            img(src=tatoo.image, alt="")
+        .uk-width-2-5
+          .uk-card.uk-card-default.uk-card-body.tatoo-card-buy-info
+              div.uk-flex.uk-flex-center.uk-padding-small.uk-flex-middl
+                p.tatoo-property.uk-flex.uk-flex-middle Name:  #{tatoo.name}
+              hr
+              div.uk-flex.uk-flex-center.uk-padding-small.uk-flex-middl
+                p.tatoo-property.uk-flex.uk-flex-middle Price: #{tatoo.price.value} #{tatoo.price.currency}
+              hr
+              div.uk-flex.uk-flex-center.uk-padding-small.uk-flex-middl
+                p.tatoo-property.uk-flex.uk-flex-middle Description: #{tatoo.description}
+              hr
+              div.uk-flex.uk-flex-center.uk-padding-small.uk-flex-middl
+                p.tatoo-property.uk-flex.uk-flex-middle Execution Time: #{tatoo.exec_time} Hrs.
+              hr
+              div.uk-flex.uk-flex-center.uk-padding-small.uk-flex-middl
+                p.tatoo-property.uk-flex.uk-flex-middle Size: #{tatoo.size}
+          .uk-card.uk-card-default.uk-card-body.tatoo-card-buy-card
+              form(action=`/tatoo/buy/${tatoo._id}` method="post")
+                fieldset.uk-fieldset
+                  //- legend.uk-legend New Tatoo Information
+                  if errorMessage
+                    .uk-flex.uk-flex-center.uk-alert-danger.uk-width-1-1(uk-alert)
+                      p.authErr #{errorMessage}
+                  .uk-margin
+                    label(class="uk-form-label" for="body_part") Prefered Body Part
+                    select.uk-select(name="body_part")
+                      optgroup(label="Top")
+                        option(value="head") Head
+                        option(value="forehead") Forehead
+                        option(value="neck") Neck
+                      optgroup(label="Middle")
+                        option(value="chest") Chest
+                        option(value="shoulder") Shoulder
+                        option(value="hip") Hip
+                        option(valus="abdomen") Abdomen
+                        option(value="back") Back
+                        option(value="buttocks") Buttocks
+                      optgroup(Label="Limbs")
+                        option(value="arm") Arm
+                        option(value="arm") Forearm
+                        option(value="hand") Hand
+                        option(value="leg") Leg
+                        optionv(value="ankle") Ankle 
+                button.uk-button.uk-button-default Buy
+
+      

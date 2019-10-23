@@ -172,7 +172,10 @@ router.get("/moreinfo/:id", isAuth, (req, res) => {
       console.log("err");
     });
 });
+<<<<<<< HEAD
 ////
+=======
+>>>>>>> 0e40ff651e4722580d696990894cb2ed60bc06b0
 
 //BUY TATOO ROUTE
 router.post("/buy/:id", isAuth, (req, res) => {

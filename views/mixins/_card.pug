@@ -1,0 +1,35 @@
+mixin card(tatoo,fan)
+  div
+    .uk-card.uk-card-default
+      .uk-card-header
+        .uk-grid-small.uk-flex-middle(uk-grid='')
+          .uk-width-auto
+          .uk-width-expand
+            div(class="tatoo-title-container")
+              h3.uk-card-title.uk-margin-remove-bottom #{tatoo.name}
+              if fan
+                div(class="tatoo-author-card")
+                  h6(uk-tooltip="Tatoo Artist Name") #{tatoo.authorArtist.username}
+              if !fan
+                div(class="tatoo-user-actions")
+                  a(href=`/tatoo/edit/${tatoo._id}`, uk-icon='pencil' ratio=0.9)
+                  a(href=`/tatoo/delete/${tatoo._id}`, uk-icon='trash'  ratio=0.9)
+            p.uk-text-meta.uk-margin-remove-top
+              time(datetime=`${tatoo.updatedAt}`) Updated: #{help.formatDate(tatoo.updatedAt)}
+              p Price: #{tatoo.price.value} #{tatoo.price.currency}
+              if !fan
+                p Execution Time: #{tatoo.exec_time} hrs
+                p Size: #{tatoo.size}
+      .uk-card-body
+        div(uk-lightbox='')
+          a(href=tatoo.image data-caption=`${tatoo.price.value} ${tatoo.price.currency}`)
+            .uk-height-medium.uk-flex.uk-flex-center.uk-flex-middle.uk-background-cover.uk-light(data-src=tatoo.image, uk-img='')
+              h1.tobehidden Background
+      if !fan        
+        .uk-card-footer.uk-flex-center           
+          p.tatoo-description
+            | #{tatoo.description}
+      if fan
+        .uk-card-footer 
+          .uk-flex.uk-flex-center
+            a(href=`/tatoo/moreinfo/${tatoo._id}` class="uk-button uk-button-primary") View More +

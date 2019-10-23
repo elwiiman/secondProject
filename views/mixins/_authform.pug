@@ -11,6 +11,7 @@ mixin authform(register, error)
           .uk-inline
             span.uk-form-icon(uk-icon='icon: mail')
             input.uk-input(type='email' name="email")
+
       .uk-margin
         label(class="uk-form-label") Password
         .uk-inline
@@ -22,6 +23,15 @@ mixin authform(register, error)
           .uk-inline
             span.uk-form-icon(uk-icon='icon: lock')
             input.uk-input(type='password' name="confirmPass")
+
+          .uk-margin
+            label(class="uk-form-label") What do you want to do? 
+            .uk-inline   
+              select.uk-select(name="role")
+                option(value="") Please select your preference
+                option(value="artist") Sell tatooes
+                option(value="fan") Buy tatooes
+
       if error
         .uk-flex.uk-flex-center.uk-alert-danger.uk-width-1-1(uk-alert)
           p.authErr #{error}
