@@ -16,15 +16,16 @@ html
       var calendarEl = document.getElementById('calendar');
 
       var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: [ 'timeGrid' , 'interaction' ],
+      plugins: [ 'timeGrid' , 'interaction' , 'dayGrid'],
       selectable: true,
       timeZone: 'UTC',
       defaultView: 'timeGridWeek',
       header: {
       left: 'prev,next today',
       center: 'title',
-      right: 'timeGridWeek,timeGridDay'
+      right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
+      defaultDate: Date.now(),
       eventStartEditable: true,
       eventOverlap: false,
       businessHours: [ // specify an array instead
@@ -40,11 +41,12 @@ html
       }
       ],
       dateClick: function(info) {
-      console.log('clicked ' + info.dateStr);
+      let h=2;
+      console.log('clicked ',info.dateStr);
       calendar.addEvent({
               title: 'dynamic event',
               start: info.dateStr,
-              end: info.endStr,
+              end: info.date.getTime() + (h*60*60*1000),
               constraint: 'businessHours'
             });
       },
