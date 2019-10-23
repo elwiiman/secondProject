@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 const passportLocalMongoose = require("passport-local-mongoose");
+const passwordValidator = require("password-validator")
 
 const userSchema = new Schema(
   {
@@ -16,12 +17,13 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      required: true
+      required: true,
+      resetPasswordToken:String,
+      resetPasswordExpires:Date
     },
-    resetPasswordToken:String,
-    resetPasswordExpires:Date,
+    
       
-      status: {
+status: {
       type: String,
       enum: ["pending", "confirmed"],
       default: "pending"
@@ -35,6 +37,14 @@ const userSchema = new Schema(
   },
   { timestamps: true }
 );
+
+const schema = new passwordValidator({
+  lowercase:false,
+  uppercase:false,
+  minlength: 8,
+  maxlength: 100,
+  number:true
+});
 
 userSchema.plugin(passportLocalMongoose, {
   hashField: "password",
