@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Document
+    link(type='text/css', rel='stylesheet', href='https://cdn.jsdelivr.net/npm/tail.datetime@0.4.13/css/tail.datetime-default-red.css')
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/tail.datetime@0.4.13/css/tail.datetime-harx-light.css")
+    script(type='text/javascript', src="https://cdn.jsdelivr.net/npm/tail.datetime@0.4.13/js/tail.datetime.js")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css")
+    link(rel="stylesheet" href="/stylesheets/style.css")
+  body
+    script(type='text/javascript').
+      document.addEventListener("DOMContentLoaded", function(){
+      tail.DateTime("#tail-datetime-field", { 
+        startOpen: false,
+        position: "right",
+        today: true,
+        timeFormat: "HH:ii",
+        timeStepMinutes: 30, 
+        pickSeconds: false,
+        showSeconds: false,
+        });
+      });
+    nav.uk-navbar-container(uk-navbar='')
+      .uk-navbar-left
+        ul.uk-navbar-nav
+          if user 
+            li
+              a(href='#')=user.username
+              .uk-navbar-dropdown
+                ul.uk-nav.uk-navbar-dropdown-nav
+                  li
+                    a(href='/profile') Profile
+                  li
+                    a(href='/logout') Logout
+          else 
+            li.uk-active
+                 a(href='/signup') Signup
+            li.uk-active
+                 a(href='/login') Login
+
+      .uk-navbar-right
+        ul.uk-navbar-nav
+          li
+            a(href='#') Parent
+            .uk-navbar-dropdown
+              ul.uk-nav.uk-navbar-dropdown-nav
+                li.uk-active
+                  a(href='#') Active
+                li
+                  a(href='#') Item
+                li.uk-nav-header Header
+                li
+                  a(href='#') Item
+                li
+                  a(href='#') Item
+                li.uk-nav-divider
+                li
+                  a(href='#') Item
+
+    .uk-section
+      .uk-container.uk-container-small.uk-flex.uk-flex-center
+        form(action=``  enctype="multipart/form-data" method="post")
+          fieldset.uk-fieldset
+            .uk-margin
+              label(class="uk-form-label mylabel" for="dateAndHour") Schedule your tatoo
+              input.uk-input.uk-form-width-medium#tail-datetime-field(type='text' name="dateAndHour" autocomplete="off")
+            .uk-margin
+              label(class="uk-form-label mylabel" for="rookie") Is it your first tatoo?
+              <label><input class="uk-radio" type="radio" name="rookie" value="true"> Yes</label>
+              <label><input class="uk-radio" type="radio" name="rookie" value="false"> No</label>
+            .uk-margin
+              label(class="uk-form-label mylabel" for="phone_number") Phone Number
+              input.uk-input.uk-form-width-medium(type='tel', placeholder='+52 5516951438' name="phone_number")
+          button.uk-button.uk-button-default(type="submit") Make Appointment
+            
+
+    <!-- UIkit JS -->
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js")
+    script(src="/javascripts/script.js")
+      
+      

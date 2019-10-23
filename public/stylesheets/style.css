@@ -18,6 +18,9 @@ a {
 .tobehidden {
   display: none; }
 
+.timepicker-seconds {
+  display: none !important; }
+
 .tatoo-title-container {
   display: flex;
   flex-flow: row;
@@ -56,5 +59,8 @@ hr {
 
 .tatoo-card-buy-card {
   margin-top: 3%; }
+
+.mylabel {
+  display: flex; }
 
 /*# sourceMappingURL=style.css.map */

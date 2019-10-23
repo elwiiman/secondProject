@@ -172,7 +172,6 @@ router.get("/moreinfo/:id", isAuth, (req, res) => {
       console.log("err");
     });
 });
-////
 
 //BUY TATOO ROUTE
 router.post("/buy/:id", isAuth, (req, res) => {
@@ -193,9 +192,16 @@ router.post("/buy/:id", isAuth, (req, res) => {
   Tatoo.findByIdAndUpdate(id, { $set: tatoo }, { new: true })
     .then(tatoo => {
       console.log("compra efectuada");
-      res.redirect("/schedule");
+      res.redirect(`/tatoo/appointment/${id}`);
     })
     .catch(err => console.log("err"));
 });
 
+router.get("/appointment/:id", isAuth, (req, res) => {
+  const { id } = req.params;
+  const { user } = req;
+  console.log("here i am", id);
+  //You have an appointment with:
+  res.render("appointment", { title: "Appointment", user });
+});
 module.exports = router;
