@@ -232,8 +232,17 @@ router.post("/appointment/:id", isAuth, (req, res) => {
   start = start + "T" + startTime + ":00Z";
 
   start = new Date(start);
+  startMillis = start.getTime();
+  console.log(start);
+  start = start.toISOString();
 
-  end = start.getTime() + duration * 60 * 60 * 100;
+  console.log(start);
+
+  end = startMillis + (duration * 3600000);
+  end = new Date(end);
+  end = end.toISOString();
+
+  console.log("start", start, "end", end);
 
   Tatoo.findById(id)
     .then(tatoo => {

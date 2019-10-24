@@ -23,14 +23,12 @@ const eventSchema = new Schema(
     client: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true,
-      unique: true
+      required: true
     },
     seller: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true,
-      unique: true
+      required: true
     },
     tatoo_size: {
       type: String,
@@ -44,8 +42,7 @@ const eventSchema = new Schema(
     tatoo: {
       type: Schema.Types.ObjectId,
       ref: "Tatoo",
-      required: true,
-      unique: true
+      required: true
     }
   },
   { timestamps: true }

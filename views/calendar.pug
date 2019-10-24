@@ -1,20 +1,29 @@
-doctype html
-html
+<!DOCTYPE html>
+html(lang="en")
   head
-    meta(charset='utf-8')
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title=title
+    //- Full Calendar CSS
     link(href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.css", rel='stylesheet')
     link(href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.css", rel='stylesheet')
     link(href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.css",rel="stylesheet")
 
- 
+    //- Full Calendar scripts
     script(src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/interaction/main.js")
+
+    //- <!-- UIkit CSS -->
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css")
+    //- Own styles
+    link(rel="stylesheet" href="/stylesheets/style.css")
     script.
       document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
-
+      console.log(JSON.parse('!{eventsRender}'))
       var calendar = new FullCalendar.Calendar(calendarEl, {
       plugins: [ 'timeGrid' , 'interaction' , 'dayGrid'],
       selectable: true,
@@ -26,34 +35,34 @@ html
       right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       defaultDate: Date.now(),
-      eventStartEditable: true,
+      eventStartEditable: false,
       eventOverlap: false,
-      businessHours: [ // specify an array instead
-      {
-        daysOfWeek: [ 1, 2, 3 ], // Monday, Tuesday, Wednesday
-        startTime: '08:00', // 8am
-        endTime: '18:00' // 6pm
-      },
-      {
-        daysOfWeek: [ 4, 5 ], // Thursday, Friday
-        startTime: '10:00', // 10am
-        endTime: '16:00' // 4pm
-      }
-      ],
-      dateClick: function(info) {
-      let h=2.5;
-      console.log('clicked ',info.dateStr);
-      calendar.addEvent({
-              title: 'dynamic event',
-              start: info.dateStr,
-              end: info.date.getTime() + (h*60*60*1000),
-              constraint: 'businessHours'
-            });
-      },
-      select: function(info) {
-      console.log('selected ' + info.startStr + ' to ' + info.endStr);
-      },
-      events: 'https://fullcalendar.io/demo-events.json'
+      //- businessHours: [ // specify an array instead
+      //- {
+      //-   daysOfWeek: [ 1, 2, 3 ], // Monday, Tuesday, Wednesday
+      //-   startTime: '08:00', // 8am
+      //-   endTime: '18:00' // 6pm
+      //- },
+      //- {
+      //-   daysOfWeek: [ 4, 5 ], // Thursday, Friday
+      //-   startTime: '10:00', // 10am
+      //-   endTime: '16:00' // 4pm
+      //- }
+      //- ],
+      //- dateClick: function(info) {
+      //- let h=2.5;
+      //- console.log('clicked ',info.dateStr);
+      //- calendar.addEvent({
+      //-         title: 'dynamic event',
+      //-         start: info.dateStr,
+      //-         end: info.date.getTime() + (h*60*60*1000),
+      //-         constraint: 'businessHours'
+      //-       });
+      //- },
+      //- select: function(info) {
+      //- console.log('selected ' + info.startStr + ' to ' + info.endStr);
+      //- },
+      events: JSON.parse('!{eventsRender}')
       });
 
       calendar.render();
@@ -70,4 +79,10 @@ html
       margin: 0 auto;
       }
   body
-    #calendar
+    include includes/navbar
+    .uk-section
+      #calendar
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js")
+    script(src="/javascripts/script.js")

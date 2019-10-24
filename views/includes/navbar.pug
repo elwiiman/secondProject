@@ -1,0 +1,37 @@
+nav.uk-navbar-container(uk-navbar='')
+  .uk-navbar-left
+    ul.uk-navbar-nav
+      if user 
+        li
+          a(href='#')=user.username
+          .uk-navbar-dropdown
+            ul.uk-nav.uk-navbar-dropdown-nav
+              li
+                a(href='/profile') Profile
+              li
+                a(href='/logout') Logout
+      else 
+        li.uk-active
+              a(href='/signup') Signup
+        li.uk-active
+              a(href='/login') Login
+
+  .uk-navbar-right
+    ul.uk-navbar-nav
+      if user 
+        li
+          a(href='#') Parent
+          .uk-navbar-dropdown
+            ul.uk-nav.uk-navbar-dropdown-nav
+              li.uk-active
+                a(href='#') View
+              li
+                a(href='/profile/myevents') My Calendar
+              li.uk-nav-header Header
+              li
+                a(href='#') Item
+              li
+                a(href='#') Item
+              li.uk-nav-divider
+              li
+                a(href='#') Item
