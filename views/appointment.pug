@@ -62,19 +62,31 @@ html(lang="en")
 
     .uk-section
       .uk-container.uk-container-small.uk-flex.uk-flex-center
-        form(action=``  enctype="multipart/form-data" method="post")
+        form(action=`/tatoo/appointment/${tatoo._id}` method="post")
           fieldset.uk-fieldset
             .uk-margin
-              label(class="uk-form-label mylabel" for="dateAndHour") Schedule your tatoo
-              input.uk-input.uk-form-width-medium#tail-datetime-field(type='text' name="dateAndHour" autocomplete="off")
+              label(class="uk-form-label mylabel" for="startDateHour") Schedule your tatoo
+              input.uk-input.uk-form-width-medium#tail-datetime-field(type='text' name="startDateHour" autocomplete="off")
             .uk-margin
-              label(class="uk-form-label mylabel" for="rookie") Is it your first tatoo?
-              <label><input class="uk-radio" type="radio" name="rookie" value="true"> Yes</label>
-              <label><input class="uk-radio" type="radio" name="rookie" value="false"> No</label>
+              label(class="uk-form-label mylabel" for="firstTime") Is it your first tatoo?
+              label
+                input.uk-radio(type='radio', name='firstTime', value="false")
+                |  No
+              label
+                input.uk-radio(type='radio', name='firstTime' value="true")
+                |  Yes
             .uk-margin
-              label(class="uk-form-label mylabel" for="phone_number") Phone Number
-              input.uk-input.uk-form-width-medium(type='tel', placeholder='+52 5516951438' name="phone_number")
-          button.uk-button.uk-button-default(type="submit") Make Appointment
+              label(class="uk-form-label mylabel" for="client_phone_number") Phone Number
+              input.uk-input.uk-form-width-medium(type='text', placeholder='+52 5516951438' name="client_phone_number")
+              input.tobehidden(type="text" name="title" value=tatoo.name)
+              input.tobehidden(type="text" name="duration" value=tatoo.exec_time)
+              input.tobehidden(type="text" name="seller" value=tatoo.authorArtist)
+              input.tobehidden(type="text" name="client" value=tatoo.acquiredBy)
+              input.tobehidden(type="text" name="tatoo_size" value=tatoo.size)
+              input.tobehidden(type="text" name="body_part" value=tatoo.body_part)
+              input.tobehidden(type="text" name="tatoo" value=tatoo._id)
+          button.uk-button.uk-button-default Make Appointment
+              
             
 
     <!-- UIkit JS -->

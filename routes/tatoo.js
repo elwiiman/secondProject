@@ -3,6 +3,7 @@ const router = express.Router();
 const { isAuth, checkRole } = require("../helpers/middlewaresAuth");
 const uploader = require("../helpers/multer");
 const Tatoo = require("../models/Tatoo");
+const Event = require("../models/Event");
 
 options = {
   currency: ["MXN", "USD"],
@@ -202,6 +203,60 @@ router.get("/appointment/:id", isAuth, (req, res) => {
   const { user } = req;
   console.log("here i am", id);
   //You have an appointment with:
-  res.render("appointment", { title: "Appointment", user });
+
+  Tatoo.findById(id, { image: 0, description: 0, price: 0, status: 0 })
+    .then(tatoo => {
+      console.log(tatoo);
+      res.render("appointment", { title: "Appointment", user, tatoo });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
+
+router.post("/appointment/:id", isAuth, (req, res) => {
+  const { id } = req.params;
+  const { user } = req;
+  const {
+    startDateHour,
+    duration,
+    seller,
+    client,
+    tatoo_size,
+    body_part
+  } = req.body;
+
+  let start = startDateHour.split(" ")[0];
+  let startTime = startDateHour.split(" ")[1];
+
+  start = start + "T" + startTime + ":00Z";
+
+  start = new Date(start);
+
+  end = start.getTime() + duration * 60 * 60 * 100;
+
+  Tatoo.findById(id)
+    .then(tatoo => {
+      const event = {
+        title: tatoo.name,
+        start,
+        end,
+        duration,
+        seller,
+        client,
+        tatoo_size,
+        body_part,
+        tatoo: tatoo._id
+      };
+      Event.create(event)
+        .then(event => {
+          res.redirect("/profile/myevents");
+        })
+        .catch(err => console.log(err));
+    })
+    .catch(err => console.log(err));
+
+  //2019-10-22T06:30:00Z
+});
+
 module.exports = router;
