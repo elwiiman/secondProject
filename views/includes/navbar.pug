@@ -7,7 +7,8 @@ nav.uk-navbar-container(uk-navbar='')
           .uk-navbar-dropdown
             ul.uk-nav.uk-navbar-dropdown-nav
               li
-                a(href='/profile') Profile
+                a(href='/profile/home') Profile Home
+              li.uk-nav-divider
               li
                 a(href='/logout') Logout
       else 
@@ -20,18 +21,19 @@ nav.uk-navbar-container(uk-navbar='')
     ul.uk-navbar-nav
       if user 
         li
-          a(href='#') Parent
+          a(href='#') Actions
           .uk-navbar-dropdown
             ul.uk-nav.uk-navbar-dropdown-nav
               li.uk-active
                 a(href='#') View
-              li
-                a(href='/profile/myevents') My Calendar
-              li.uk-nav-header Header
-              li
-                a(href='#') Item
-              li
-                a(href='#') Item
               li.uk-nav-divider
               li
-                a(href='#') Item
+                a(href='/profile/myevents') My Calendar
+              //- li.uk-nav-header Header
+              //- li
+              //-   a(href='#') Item
+              //- li
+              //-   a(href='#') Item
+              //- li.uk-nav-divider
+              //- li
+              //-   a(href='#') Item

@@ -25,6 +25,10 @@ const eventSchema = new Schema(
       ref: "User",
       required: true
     },
+    client_phone_number: {
+      type: String,
+      required: true
+    },
     seller: {
       type: Schema.Types.ObjectId,
       ref: "User",

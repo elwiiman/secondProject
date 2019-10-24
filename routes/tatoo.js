@@ -56,7 +56,7 @@ router.post("/new", isAuth, uploader.single("image"), (req, res) => {
 
     Tatoo.create(tatoo)
       .then(newtatoo => {
-        res.redirect("/profile");
+        res.redirect("/profile/home");
       })
       .catch(error => {
         console.log(error);
@@ -124,7 +124,7 @@ router.post("/edit/:id", isAuth, uploader.single("image"), (req, res) => {
 
           Tatoo.findByIdAndUpdate(id, { $set: tatoo }, { new: true }).then(
             tatoo => {
-              res.redirect("/profile");
+              res.redirect("/profile/home");
             }
           );
         })
@@ -142,7 +142,7 @@ router.post("/edit/:id", isAuth, uploader.single("image"), (req, res) => {
 
       Tatoo.findByIdAndUpdate(id, { $set: tatoo }, { new: true }).then(
         tatoo => {
-          res.redirect("/profile");
+          res.redirect("/profile/home");
         }
       );
     }
@@ -156,9 +156,9 @@ router.get("/delete/:id", isAuth, (req, res) => {
   Tatoo.findByIdAndDelete(id)
     .then(() => {
       console.log("iamhere");
-      res.redirect("/profile");
+      res.redirect("/profile/home");
     })
-    .catch(err => res.redirect("/profile"));
+    .catch(err => res.redirect("/profile/home"));
 });
 
 //MORE INFO TATOO ROUTE
@@ -218,6 +218,8 @@ router.post("/appointment/:id", isAuth, (req, res) => {
   const { id } = req.params;
   const { user } = req;
   const {
+    client_phone_number,
+    firstTime,
     startDateHour,
     duration,
     seller,
@@ -226,19 +228,36 @@ router.post("/appointment/:id", isAuth, (req, res) => {
     body_part
   } = req.body;
 
+  if (!startDateHour || !client_phone_number || !firstTime) {
+    let errorMessage = "All fields must be filled";
+    Tatoo.findById(id, { image: 0, description: 0, price: 0, status: 0 })
+      .then(tatoo => {
+        console.log(tatoo);
+        return res.render("appointment", {
+          title: "Appointment",
+          user,
+          errorMessage,
+          tatoo
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   let start = startDateHour.split(" ")[0];
   let startTime = startDateHour.split(" ")[1];
 
   start = start + "T" + startTime + ":00Z";
 
   start = new Date(start);
-  startMillis = start.getTime();
+  const startMillis = start.getTime();
   console.log(start);
   start = start.toISOString();
 
   console.log(start);
 
-  end = startMillis + (duration * 3600000);
+  let end = startMillis + (duration * 3600000);
   end = new Date(end);
   end = end.toISOString();
 
@@ -255,7 +274,9 @@ router.post("/appointment/:id", isAuth, (req, res) => {
         client,
         tatoo_size,
         body_part,
-        tatoo: tatoo._id
+        tatoo: tatoo._id,
+        client_phone_number,
+        firstTime
       };
       Event.create(event)
         .then(event => {

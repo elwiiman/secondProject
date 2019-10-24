@@ -29,6 +29,9 @@ html(lang="en")
       .uk-container.uk-container-small.uk-flex.uk-flex-center
         form(action=`/tatoo/appointment/${tatoo._id}` method="post")
           fieldset.uk-fieldset
+            if errorMessage
+              .uk-flex.uk-flex-center.uk-alert-danger.uk-width-1-1(uk-alert)
+                p.authErr #{errorMessage}
             .uk-margin
               label(class="uk-form-label mylabel" for="startDateHour") Schedule your tatoo
               input.uk-input.uk-form-width-medium#tail-datetime-field(type='text' name="startDateHour" autocomplete="off")

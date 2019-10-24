@@ -18,14 +18,14 @@ router.get("/home", isAuth, (req, res, next) => {
   res.render("home", { title: "Home", user });
 });
 
-router.get("/profile", isAuth, (req, res, next) => {
+router.get("/profile/home", isAuth, (req, res, next) => {
   const { user } = req;
   let help = {};
   help.formatDate = formatDate;
 
   if (user.role === "artist") {
     console.log("you are an artist");
-    Tatoo.find({ authorArtist: user._id }).then(tatoos => {
+    Tatoo.find({ authorArtist: user._id, status: "for sale" }).then(tatoos => {
       res.render("profile-artist", { title: "Profile", user, tatoos, help });
     });
   }

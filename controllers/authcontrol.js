@@ -9,7 +9,7 @@ exports.login = (req, res) => {
     }
 
     req.login(user, err => {
-      res.redirect("/profile");
+      res.redirect("/profile/home");
     });
   })(req, res);
 };
@@ -41,7 +41,7 @@ exports.signup = (req, res) => {
       // send(options);
       req.login(usr, error => {
         if (error) return res.render("signup", { title: "SignUp", error });
-        res.redirect("/profile");
+        res.redirect("/profile/home");
       });
     })
     .catch(error => res.render("signup", { title: "SignUp", error }));
