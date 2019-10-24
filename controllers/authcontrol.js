@@ -1,6 +1,9 @@
 const passport = require("../helpers/passport");
 const User = require("../models/User");
 const { send } = require("../helpers/mailer");
+const passwordValidator = require("password-validator")
+const schema = require("../models/User")
+
 
 exports.login = (req, res) => {
   passport.authenticate("local", (err, user, info = {}) => {
@@ -16,7 +19,7 @@ exports.login = (req, res) => {
 };
 
 exports.signup = (req, res) => {
-  let { username, email, password, confirmPass, role } = req.body;
+  const { username, email, password, confirmPass, role } = req.body;
 
   if (password !== confirmPass) {
     console.log("pass not the same");
@@ -30,25 +33,30 @@ exports.signup = (req, res) => {
     return res.render("register", { title: "SignUp", error });
   }
  
-    
+ if(password.length <8 || !password.match(/[a-z]/) || !password.match(/[A-Z]/) ||!password.match(/[0-9]/) || !password.match(/(^[a-zA-Z0-9]+$)/i)) {
+ console.log("not a valid password"); 
+ let error = "Not a valid password";
+ return res.render("register", { title: "SignUp", error});
+ }
 
 
-  User.register({ username, email,role }, password)
-    .then(usr => {
-      const options = {
-        filename: "register",
-        email: usr.email,
-        message: "Valida tu correo",
-        subject: "Confirma correo"
-      };
-      send(options);
-      req.login(usr, errorMessage => {
-        if (errorMessage)
-          return res.render("register", { title: "Signup", errorMessage });
-        res.redirect("/home");
-      });
-    })
-    .catch(errorMessage =>
-      res.render("register", { title: "Sign Up", errorMessage })
-    );
+ User.register({ username, email }, password)
+ .then(usr => {
+   const options = {
+     filename: "register",
+     email: usr.email,
+     message: "Valida tu correo",
+     subject: "Confirma correo"
+   };
+   send(options);
+   req.login(usr, errorMessage => {
+     if (errorMessage)
+       return res.render("register", { title: "Sign Up", errorMessage });
+     res.redirect("/home");
+   });
+ })
+ .catch(errorMessage =>
+   res.render("register", { title: "Sign Up", errorMessage })
+ );
 };
+
