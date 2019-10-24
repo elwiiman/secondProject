@@ -1,5 +1,5 @@
 mixin authform(register, error)
-  form(class="authform" action=register ? "/signup" : "/login" class="uk-form-stacked" method="post")
+  form(class="authform" action=register ? "/SignUp" : "/login" class="uk-form-stacked" method="post")
       .uk-margin
         label(class="uk-form-label" for="username")=register ? "Username" : "Username or Email"
         .uk-inline

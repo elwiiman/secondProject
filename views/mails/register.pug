@@ -1,83 +1,209 @@
-doctype html
-head
-  meta(name='viewport' content='width=device-width')
-  meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
-  title Confirmation Email
-  style(type='text/css').
-    img {
-    max-width: 100%;
-    }
-    body {
-    -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100% !important; height: 100%; line-height: 1.6em;
-    }
-    body {
-    background-color: #f6f6f6;
-    }
-    @media only screen and (max-width: 640px) {
-    body {
-    padding: 0 !important;
-    }
-    h1 {
-    font-weight: 800 !important; margin: 20px 0 5px !important;
-    }
-    h2 {
-    font-weight: 800 !important; margin: 20px 0 5px !important;
-    }
-    h3 {
-    font-weight: 800 !important; margin: 20px 0 5px !important;
-    }
-    h4 {
-    font-weight: 800 !important; margin: 20px 0 5px !important;
-    }
-    h1 {
-    font-size: 22px !important;
-    }
-    h2 {
-    font-size: 18px !important;
-    }
-    h3 {
-    font-size: 16px !important;
-    }
-    .container {
-    padding: 0 !important; width: 100% !important;
-    }
-    .content {
-    padding: 0 !important;
-    }
-    .content-wrap {
-    padding: 10px !important;
-    }
-    .invoice {
-    width: 100% !important;
-    }
-    }
-table.body-wrap(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; background-color: #f6f6f6; margin: 0;" bgcolor='#f6f6f6')
-  tr(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;")
-    td(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0;" valign='top')
-    td.container(width='600' style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;" valign='top')
-      .content(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; max-width: 600px; display: block; margin: 0 auto; padding: 20px;")
-        table.main(width='100%' cellpadding='0' cellspacing='0' itemprop='action' itemscope='' itemtype='http://schema.org/ConfirmAction' style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; border-radius: 3px; background-color: #fff; margin: 0; border: 1px solid #e9e9e9;" bgcolor='#fff')
-          tr(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;")
-            td.content-wrap(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 20px;" valign='top')
-              meta(itemprop='name' content='Confirm Email' style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;")
-              table(width='100%' cellpadding='0' cellspacing='0' style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;")
-                tr(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;")
-                  td.content-block(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign='top')
-                    | Please confirm your email address by clicking the link below.
-                tr(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;")
-                  td.content-block(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign='top')
-                    | We may need to send you critical information about our service and it is important that we have an accurate email address.
-                tr(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;")
-                  td.content-block(itemprop='handler' itemscope='' itemtype='http://schema.org/HttpActionHandler' style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign='top')
-                    a.btn-primary(href='http://www.mailgun.com' itemprop='url' style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #FFF; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize; background-color: #348eda; margin: 0; border-color: #348eda; border-style: solid; border-width: 10px 20px;") Confirm email address
-                tr(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;")
-                  td.content-block(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign='top')
-                    | &mdash; The Mailgunners
-        .footer(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; clear: both; color: #999; margin: 0; padding: 20px;")
-          table(width='100%' style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;")
-            tr(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;")
-              td.aligncenter.content-block(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 12px; vertical-align: top; color: #999; text-align: center; margin: 0; padding: 0 0 20px;" align='center' valign='top')
-                | Follow 
-                a(href='http://twitter.com/mail_gun' style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 12px; color: #999; text-decoration: underline; margin: 0;") @Mail_Gun
-                |  on Twitter.
-    td(style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0;" valign='top')
+table.em_full_wrap(width='100%' border='0' cellspacing='0' cellpadding='0' align='center' bgcolor='#efefef')
+  tr
+    td(align='center' valign='top')
+      table.em_main_table(align='center' width='650' border='0' cellspacing='0' cellpadding='0' style='width:650px; table-layout:fixed;')
+        tr
+          td.em_aside10(align='center' valign='top' style='padding:0 25px;')
+            table(width='100%' border='0' cellspacing='0' cellpadding='0' align='center')
+              tr
+                td.em_h20(height='26' style='height:26px;') &nbsp;
+              tr
+                td(align='center' valign='top')
+                  a(href='#' target='_blank' style='text-decoration:none;')
+                    img.em_w150(src='/assets/pilot/images/templates/header_logo.png' width='208' height='41' alt='meowgun' border='0' style='display:block; font-family:Arial, sans-serif; font-size:18px; line-height:25px; text-align:center; color:#1d4685; font-weight:bold; max-width:208px;')
+              tr
+                td.em_h20(height='28' style='height:28px;') &nbsp;
+table.em_full_wrap(width='100%' border='0' cellspacing='0' cellpadding='0' align='center' bgcolor='#efefef')
+  tr
+    td(align='center' valign='top')
+      table.em_main_table(align='center' width='650' border='0' cellspacing='0' cellpadding='0' style='width:650px; table-layout:fixed; background-color:#f8f8f8;')
+        tr
+          td.em_aside10(align='center' valign='top' style='padding:0 25px; background-color:#efefef;' bgcolor='#efefef')
+            table(width='100%' border='0' cellspacing='0' cellpadding='0' align='center')
+              tr
+                td.em_blue.em_font_22(align='center' valign='top' style='font-family: Arial, sans-serif; font-size: 26px; line-height: 29px; color:#264780; font-weight:bold;') WELCOME TO THE TATTOO SHOP 
+              tr
+                td.em_h20(height='22' style='height:22px; font-size:0px; line-height:0px;') &nbsp;
+              tr
+                td(valign='top' align='center')
+                  a(href='#' target='_blank' style='text-decoration:none;')
+                    img.em_full_img(src='/assets/pilot/images/templates/banner.jpg' width='600' height='230' alt='Alt tag goes here' border='0' style='display:block; max-width:600px; font-family:Arial, sans-serif; font-size:17px; line-height:20px; color:#000000; font-weight:bold;')
+              tr
+                td.em_aside10(valign='top' align='left' bgcolor='#ffffff' style='padding-left:25px; padding-right:35px; background-color:#ffffff;')
+                  table(width='100%' border='0' cellspacing='0' cellpadding='0' align='left')
+                    tr
+                      td.em_h20(height='22' style='height:22px;') &nbsp;
+                    tr
+                      td.em_blue.em_center(align='left' valign='top' style='font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color:#264780; font-weight:bold;') Introducing the Tattoo shop
+                    tr
+                      td(height='8' style='height:8px; font-size:0px; line-height:0px;') &nbsp;
+                    tr
+                      td.em_grey.em_center(align='left' valign='top' style='font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; color:#434343;')
+                        | A tattoo artist is someone who creates permanent images or words on the skin. This is done by injecting ink under the surface of the skin by piercing it with a small needle. Tattooing is one of the oldest art forms known to man; in ancient times tattoos were not only applied for decoration, but for religious significance or as a status symbol.
+                    tr
+                      td(height='16' style='height:16px; font-size:1px; line-height:1px;') &nbsp;
+                    tr
+                      td(align='left' valign='top')
+                        table.em_wrapper(width='140' border='0' cellspacing='0' cellpadding='0' align='left' style='width:140px;')
+                          tr
+                            td(valign='top' align='center')
+                              table(width='140' style='width:140px; background-color:#6bafb2; border-radius:4px;' border='0' cellspacing='0' cellpadding='0' align='center' bgcolor='#6bafb2')
+                                tr
+                                  td.em_white(height='34' align='center' valign='middle' style='font-family: Arial, sans-serif; font-size: 13px; color:#ffffff; font-weight:bold; height:34px;')
+                                    a(href='https://www.careerexplorer.com/careers/tattoo-artist/' target='_blank' style='text-decoration:none; color:#ffffff; line-height:34px; display:block;') CHECK IT OUT
+                    tr
+                      td.em_h20(height='26' style='height:26px;') &nbsp;
+        tr
+          td.em_h10(height='20' bgcolor='#efefef' style='height:20px; font-size:1px; line-height:1px; background-color:#efefef;') &nbsp;
+        tr
+          td.em_aside10(align='center' valign='top' bgcolor='#efefef' style='padding:0 25px; background-color:#efefef;')
+            table(width='100%' border='0' cellspacing='0' cellpadding='0' align='center')
+              tr
+                td(valign='top' align='center')
+                  table(width='100%' border='0' cellspacing='0' cellpadding='0' align='center')
+                    tr
+                      td(valign='top')
+                        table.em_wrapper(width='290' border='0' cellspacing='0' cellpadding='0' align='left' style='width:290px; background-color:#ffffff;' bgcolor='#ffffff')
+                          tr
+                            td(valign='top' align='center')
+                              a(href='#' target='_blank' style='text-decoration:none;')
+                                img.em_full_img2(src='/assets/pilot/images/templates/cat_3.jpg' width='290' height='220' alt='Alt tag goes here' border='0' style='display:block; max-width:290px; font-family:Arial, sans-serif; font-size:17px; line-height:20px; color:#000000; font-weight:bold;')
+                          tr
+                            td.em_aside10(valign='top' align='left' bgcolor='#ffffff' style='padding-left:25px; padding-right:30px; background-color:#ffffff;')
+                              table(width='100%' border='0' cellspacing='0' cellpadding='0' align='left')
+                                tr
+                                  td.em_h20(height='22' style='height:22px;') &nbsp;
+                                tr
+                                  td.em_blue.em_center(align='left' valign='top' style='font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color:#264780; font-weight:bold;') Work Place
+                                tr
+                                  td(height='10' style='height:10px; font-size:0px; line-height:0px;') &nbsp;
+                                tr
+                                  td.em_hauto(valign='top' align='left' height='155' style='height:155px;')
+                                    table(width='100%' border='0' cellspacing='0' cellpadding='0' align='left')
+                                      tr
+                                        td.em_grey.em_center(align='left' valign='top' style='font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; color:#434343;')
+                                          | Some tattoo artists will start their own tattoo studio after years of experience, but most artists will typically start out working in an existing tattoo studio that has all the necessary tattooing equipment, many books of designs, and a dedicated workspace for tattooing clients. Work hours are usually from 10am - 6pm or later, six days a week. Each appointment requires intense concentration and leaves little room for error, therefore the job can be mentally and physically tiring.
+                                      tr
+                                        td.em_h15(height='10' style='height:10px; font-size:1px; line-height:1px;') &nbsp;
+                                tr
+                                  td(align='left' valign='top')
+                                    table.em_wrapper(width='140' border='0' cellspacing='0' cellpadding='0' align='left' style='width:140px;')
+                                      tr
+                                        td(valign='top' align='center')
+                                          table(width='140' style='width:140px; background-color:#6bafb2; border-radius:4px;' border='0' cellspacing='0' cellpadding='0' align='center' bgcolor='#6bafb2')
+                                            tr
+                                              td.em_white(height='34' align='center' valign='middle' style='font-family: Arial, sans-serif; font-size: 13px; color:#ffffff; font-weight:bold; height:34px;')
+                                                a(href='https://www.careerexplorer.com/careers/tattoo-artist/' target='_blank' style='text-decoration:none; color:#ffffff; line-height:34px; display:block;') READ MORE
+                                tr
+                                  td.em_h20(height='26' style='height:26px;') &nbsp;
+                        table.em_wrapper(width='290' border='0' cellspacing='0' cellpadding='0' align='right' style='width:290px; background-color:#ffffff;' bgcolor='#ffffff')
+                          tr
+                            td.em_border(valign='top' align='center')
+                              a(href='#' target='_blank' style='text-decoration:none;')
+                                img.em_full_img2(src='/assets/pilot/images/templates/cat_2_large.jpg' width='290' height='220' alt='Alt tag goes here' border='0' style='display:block; max-width:290px; font-family:Arial, sans-serif; font-size:17px; line-height:20px; color:#000000; font-weight:bold;')
+                          tr
+                            td.em_aside10(valign='top' align='left' bgcolor='#ffffff' style='padding-left:25px; padding-right:30px; background-color:#ffffff;')
+                              table(width='100%' border='0' cellspacing='0' cellpadding='0' align='left')
+                                tr
+                                  td.em_h20(height='22' style='height:22px;') &nbsp;
+                                tr
+                                  td.em_blue.em_center(align='left' valign='top' style='font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color:#264780; font-weight:bold;') Artist Salary
+                                tr
+                                  td(height='10' style='height:10px; font-size:0px; line-height:0px;') &nbsp;
+                                tr
+                                  td.em_hauto(valign='top' align='left' height='155' style='height:155px;')
+                                    table(width='100%' border='0' cellspacing='0' cellpadding='0' align='left')
+                                      tr
+                                        td.em_grey.em_center(align='left' valign='top' style='font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; color:#434343;')
+                                          | The average salary for a tattoo artist in the United States is around $39,265 per year.
+                                      tr
+                                        td.em_h15(height='10' style='height:10px; font-size:1px; line-height:1px;') &nbsp;
+                                tr
+                                  td(align='left' valign='top')
+                                    table.em_wrapper(width='160' border='0' cellspacing='0' cellpadding='0' align='left' style='width:160px;')
+                                      tr
+                                        td(valign='top' align='center')
+                                          table(width='160' style='width:160px; background-color:#6bafb2; border-radius:4px;' border='0' cellspacing='0' cellpadding='0' align='center' bgcolor='#6bafb2')
+                                            tr
+                                              td.em_white(height='34' align='center' valign='middle' style='font-family: Arial, sans-serif; font-size: 13px; color:#ffffff; font-weight:bold; height:34px;')
+                                                a(href='https://www.careerexplorer.com/careers/tattoo-artist/salary/' target='_blank' style='text-decoration:none; color:#ffffff; line-height:34px; display:block;') MORE INFO
+                                tr
+                                  td.em_h20(height='26' style='height:26px;') &nbsp;
+table.em_full_wrap(width='100%' border='0' cellspacing='0' cellpadding='0' align='center' bgcolor='#efefef')
+  tr
+    td(align='center' valign='top')
+      table.em_main_table(align='center' width='650' border='0' cellspacing='0' cellpadding='0' style='width:650px; table-layout:fixed;')
+        tr
+          td.em_aside10(align='center' valign='top' style='padding:0 25px;')
+            table(width='100%' border='0' cellspacing='0' cellpadding='0' align='center')
+              tr
+                td.em_h20(height='40' style='height:40px;') &nbsp;
+              tr
+                td(align='center' valign='top')
+                  table(border='0' cellspacing='0' cellpadding='0' align='center')
+                    tr
+                      td(width='30' style='width:30px;' align='center' valign='middle')
+                        a(href='#' target='_blank' style='text-decoration:none;')
+                          img(src='/assets/pilot/images/templates/fb.png' width='30' height='30' alt='Fb' border='0' style='display:block; font-family:Arial, sans-serif; font-size:18px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;')
+                      td(width='12' style='width:12px;') &nbsp;
+                      td(width='30' style='width:30px;' align='center' valign='middle')
+                        a(href='#' target='_blank' style='text-decoration:none;')
+                          img(src='/assets/pilot/images/templates/tw.png' width='30' height='30' alt='Tw' border='0' style='display:block; font-family:Arial, sans-serif; font-size:14px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;')
+                      td(width='12' style='width:12px;') &nbsp;
+                      td(width='30' style='width:30px;' align='center' valign='middle')
+                        a(href='#' target='_blank' style='text-decoration:none;')
+                          img(src='/assets/pilot/images/templates/insta.png' width='30' height='30' alt='Insta' border='0' style='display:block; font-family:Arial, sans-serif; font-size:14px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;')
+              tr
+                td(height='16' style='height:16px; font-size:1px; line-height:1px; height:16px;') &nbsp;
+              tr
+                td.em_grey(align='center' valign='top' style='font-family: Arial, sans-serif; font-size: 15px; line-height: 18px; color:#434343; font-weight:bold;') Problems or questions?
+              tr
+                td(height='10' style='height:10px; font-size:1px; line-height:1px;') &nbsp;
+              tr
+                td(align='center' valign='top' style='font-size:0px; line-height:0px;')
+                  table(border='0' cellspacing='0' cellpadding='0' align='center')
+                    tr
+                      td(width='15' align='left' valign='middle' style='font-size:0px; line-height:0px; width:15px;')
+                        a(href='tattoo:veganvita316@gmail.com' style='text-decoration:none;')
+                          img(src='/assets/pilot/images/templates/email_img.png' width='15' height='12' alt='' border='0' style='display:block; max-width:15px;')
+                      td.em_w5(width='9' style='width:9px; font-size:0px; line-height:0px;')
+                        img(src='/assets/pilot/images/templates/spacer.gif' width='1' height='1' alt='' border='0' style='display:block;')
+                      td.em_grey.em_font_11(align='left' valign='middle' style='font-family: Arial, sans-serif; font-size: 13px; line-height: 15px; color:#434343;')
+                        a(href='mailto:veganvita316@gmail.com' style='text-decoration:none; color:#434343;') veganvita@gmail.com
+                        a(href='mailto:marketing@mailgun.com' style='text-decoration:none; color:#434343;') [tattoo:veganvita316@gmail.com]
+              tr
+                td.em_h10(height='9' style='font-size:0px; line-height:0px; height:9px;')
+                  img(src='/assets/pilot/images/templates/spacer.gif' width='1' height='1' alt='' border='0' style='display:block;')
+              tr
+                td(align='center' valign='top')
+                  table(border='0' cellspacing='0' cellpadding='0' align='center')
+                    tr
+                      td(width='12' align='left' valign='middle' style='font-size:0px; line-height:0px; width:12px;')
+                        a(href='#' target='_blank' style='text-decoration:none;')
+                          img(src='/assets/pilot/images/templates/img_1.png' width='12' height='16' alt='' border='0' style='display:block; max-width:12px;')
+                      td.em_w5(width='7' style='width:7px; font-size:0px; line-height:0px;') &nbsp;
+                      td.em_grey.em_font_11(align='left' valign='middle' style='font-family: Arial, sans-serif; font-size: 13px; line-height: 15px; color:#434343;')
+                        a(href='#' target='_blank' style='text-decoration:none; color:#434343;') Tattoo Shop 
+                        |  &bull; 123 Tatto Way &bull; Cattown, CA 95389
+              tr
+                td.em_h20(height='35' style='height:35px;') &nbsp;
+        tr
+          td(height='1' bgcolor='#dadada' style='font-size:0px; line-height:0px; height:1px;')
+            img(src='/assets/pilot/images/templates/spacer.gif' width='1' height='1' alt='' border='0' style='display:block;')
+        tr
+          td.em_aside10(align='center' valign='top' style='padding:0 25px;')
+            table(width='100%' border='0' cellspacing='0' cellpadding='0' align='center')
+              tr
+                td(height='16' style='font-size:0px; line-height:0px; height:16px;') &nbsp;
+              tr
+                td(align='center' valign='top')
+                  table.em_wrapper(border='0' cellspacing='0' cellpadding='0' align='left')
+                    tr
+                      td.em_grey(align='center' valign='middle' style='font-family: Arial, sans-serif; font-size: 11px; line-height: 16px; color:#434343;')
+                        | &copy; Tatto Shop  2019  &nbsp;|&nbsp;  
+                        a(href='#' target='_blank' style='text-decoration:underline; color:#434343;') Unsubscribe
+              tr
+                td(height='16' style='font-size:0px; line-height:0px; height:16px;') &nbsp;
+        tr
+          td.em_hide(style='line-height:1px;min-width:650px;background-color:#efefef;')
+            img(alt='' src='/assets/pilot/images/templates/spacer.gif' height='1' width='650' style='max-height:1px; min-height:1px; display:block; width:650px; min-width:650px;' border='0')

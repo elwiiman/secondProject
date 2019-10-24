@@ -1,7 +1,6 @@
 const passport = require("../helpers/passport");
 const User = require("../models/User");
 const { send } = require("../helpers/mailer");
-const passwordValidator = require("password-validator")
 const schema = require("../models/User")
 
 
