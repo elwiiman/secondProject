@@ -1,12 +1,67 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 body {
   margin: 0 !important;
   padding: 0;
   box-sizing: border-box;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font-family: Poppins;
+  color: #F9F9F9; }
 
-a {
-  color: #00b7ff; }
+.uk-navbar {
+  background-color: #343434 !important; }
+
+.uk-navbar-nav > li.uk-active > a {
+  color: #F9F9F9; }
+
+.uk-overlay-default {
+  background: rgba(255, 255, 255, 0.23); }
+
+.info-sec {
+  padding: 3% 2%;
+  background-color: #2F3061; }
+
+.info-sec2 {
+  padding: 3% 2%;
+  background-color: #1E1E23; }
+
+.button-important {
+  background-color: #C9AB18;
+  border-radius: 1em;
+  border: none; }
+
+.button-important:hover {
+  background-color: #b39813;
+  color: #fff; }
+
+.card-info-title {
+  font-family: Roboto;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.uk-info {
+  background: #D4DBD7;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius: 1.5em;
+  border: 1px solid #474448; }
+
+.uk-info p {
+  color: #2F3061; }
+
+.info-img {
+  height: 45%;
+  width: 35%; }
+
+.number-img-container {
+  display: flex;
+  justify-content: flex-start; }
+
+.number-img {
+  height: 13%;
+  width: 13%; }
+
+.big-paragraph {
+  font-size: 1.23em; }
 
 .authform {
   width: 40%; }

@@ -1,5 +1,86 @@
 extends layout 
 
 block content
-  h1=title
-  p Welcome to #{title}
+  section
+    .uk-position-relative.uk-visible-toggle.uk-light(tabindex='-1', uk-slideshow='')
+      ul.uk-slideshow-items(uk-height-viewport="offset-top: true")
+        li
+          img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571965348/landing/person_designing_ylwt57.jpg', alt='', uk-cover='')
+          .uk-overlay-default.uk-position-cover
+        li
+          img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571966506/landing/taooin-person_x38zpr.jpg', alt='', uk-cover='')
+          .uk-overlay-default.uk-position-cover
+        li
+          img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571966122/landing/flashes2_s2b3h3.jpg', alt='', uk-cover='')
+          .uk-overlay-default.uk-position-cover
+        li
+          img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571966124/landing/flashes_wrb2rg.jpg', alt='', uk-cover='')
+          .uk-overlay-default.uk-position-cover
+        li
+          img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571966120/landing/selection_rkojpi.jpg', alt='', uk-cover='')
+          .uk-overlay-default.uk-position-cover
+        li
+          img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571966123/landing/persons-tatooes_3_an7wzh.jpg', alt='', uk-cover='') 
+          .uk-overlay-default.uk-position-cover 
+          
+      a.uk-position-center-left.uk-position-small.uk-hidden-hover(href='#', uk-slidenav-previous='', uk-slideshow-item='previous')
+      a.uk-position-center-right.uk-position-small.uk-hidden-hover(href='#', uk-slidenav-next='', uk-slideshow-item='next')
+  .uk-section.info-sec
+    .uk-grid-small.uk-grid-match(class='uk-child-width-1-3@m', uk-grid='' uk-height-match="target: > div > .uk-card") 
+      div
+        .uk-card.uk-info.uk-card-body
+          div.number-img-container
+            img.number-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571968635/landing/one_azurzo.png', alt='')
+          h3.uk-card-title.card-info-title Create
+          div
+            img.info-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571964116/landing/creativity_black_mrl7w1.png', alt='')
+          p This happen outside the application.
+      div
+        .uk-card.uk-info.uk-card-body
+          div.number-img-container
+            img.number-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571968675/landing/two_dmdybr.png', alt='')
+          h3.uk-card-title.card-info-title  Upload
+          div
+            img.info-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571963976/landing/upload_z5qz36.png', alt='')
+          p If your a tatoo artist, upload your designs, assign a price, execution time and another important details. 
+      div
+        .uk-card.uk-info.uk-card-body
+          div.number-img-container
+            img.number-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571968702/landing/three_vuxo3k.png', alt='')
+          h3.uk-card-title.card-info-title  Promote
+          div
+            img.info-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571964064/landing/promotion_dvk3p1.png', alt='')
+          p All the tatoos uploaded are going to be published in the application market
+  .uk-section.info-sec2
+    .uk-grid-small.uk-grid-match(class='uk-child-width-1-3@m', uk-grid='' uk-height-match="target: > div > .uk-card") 
+      div
+        .uk-card.uk-info.uk-card-body
+          div.number-img-container
+            img.number-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571968724/landing/four_ai88ni.png', alt='')
+          h3.uk-card-title.card-info-title Buy / Sell
+          div
+            img.info-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571972535/landing/payment_o0ovxh.png', alt='')
+          p The core of every bussiness. 
+      div
+        .uk-card.uk-info.uk-card-body
+          div.number-img-container
+            img.number-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571968779/landing/five_ffvvom.png', alt='')
+          h3.uk-card-title.card-info-title  Schedule
+          div
+            img.info-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571964064/landing/event_cbtbnc.png', alt='')
+          p After you finish your purchase, schedule your appointment to get inked. 
+      div
+        .uk-card.uk-info.uk-card-body
+          div.number-img-container
+            img.number-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571968779/landing/six_apgxlf.png', alt='')
+          h3.uk-card-title.card-info-title  Get Inked!
+          div
+            img.info-img(src='https://res.cloudinary.com/elwiiman/image/upload/v1571972702/landing/tatoo_uvmqbk.png', alt='')
+          p Another cool tatoo for you. 
+  .uk-section.info-sec.uk-flex.uk-flex-center.uk-flex-column
+    div.uk-flex.uk-flex-center
+      p.big-paragraph Don't wait more! Start to buy / sell tatoos with the help of technology.
+    div.uk-flex.uk-flex-center
+      a.uk-button.uk-button-primary.button-important(href="/signup") Signup
+
+

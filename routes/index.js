@@ -8,7 +8,7 @@ const User = require("../models/User");
 const ObjectId = require("mongodb").ObjectId;
 
 /* GET home page */
-router.get("/", isAuth, (req, res, next) => {
+router.get("/", (req, res, next) => {
   const { user } = req;
   res.render("index", { user });
 });
