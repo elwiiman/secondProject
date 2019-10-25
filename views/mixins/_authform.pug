@@ -1,33 +1,33 @@
 mixin authform(register, error)
   form(class="authform" action=register ? "/signup" : "/login" class="uk-form-stacked" method="post")
       .uk-margin
-        label(class="uk-form-label" for="username")=register ? "Username" : "Username or Email"
+        label(class="uk-form-label uk-form-label-custom" for="username")=register ? "Username" : "Username or Email"
         .uk-inline
           span.uk-form-icon(uk-icon='icon: user')
-          input.uk-input(type='text' name="username")
+          input.uk-input.uk-input-custom.uk-width-medium(type='text' name="username")
       if register    
         .uk-margin
-          label(class="uk-form-label" for="email") Email
+          label(class="uk-form-label uk-form-label-custom" for="email") Email
           .uk-inline
             span.uk-form-icon(uk-icon='icon: mail')
-            input.uk-input(type='email' name="email")
+            input.uk-input.uk-input-custom.uk-width-medium(type='email' name="email")
 
       .uk-margin
-        label(class="uk-form-label") Password
+        label(class="uk-form-label uk-form-label-custom") Password
         .uk-inline
           span.uk-form-icon(uk-icon='icon: lock')
-          input.uk-input(type='password' name="password")
+          input.uk-input.uk-input-custom.uk-width-medium(type='password' name="password")
       if register    
         .uk-margin
-          label(class="uk-form-label") Confirm password
+          label(class="uk-form-label uk-form-label-custom") Confirm password
           .uk-inline
             span.uk-form-icon(uk-icon='icon: lock')
-            input.uk-input(type='password' name="confirmPass")
+            input.uk-input.uk-input-custom.uk-width-medium(type='password' name="confirmPass")
 
           .uk-margin
-            label(class="uk-form-label") What do you want to do? 
+            label(class="uk-form-label uk-form-label-custom") What do you want to do? 
             .uk-inline   
-              select.uk-select(name="role")
+              select.uk-select.uk-input-custom.uk-width-medium(name="role")
                 option(value="") Please select your preference
                 option(value="artist") Sell tatooes
                 option(value="fan") Buy tatooes
@@ -36,4 +36,4 @@ mixin authform(register, error)
         .uk-flex.uk-flex-center.uk-alert-danger.uk-width-1-1(uk-alert)
           p.authErr #{error}
       .uk-margin.uk-flex.uk-flex-center   
-          button.uk-button.uk-button-primary(type="submit")=register ? "Register" : "Login"
+          button.uk-button.uk-button-primary.button-important(type="submit")=register ? "Register" : "Login"

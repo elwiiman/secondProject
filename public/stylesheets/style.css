@@ -5,13 +5,26 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: Poppins;
+  font-size: 0.85em;
+  background-color: #F9F9F9;
   color: #F9F9F9; }
+
+body.calendar {
+  margin: 0 !important;
+  padding: 0;
+  color: black; }
 
 .uk-navbar {
   background-color: #343434 !important; }
 
+.logo {
+  width: 18%;
+  height: 75%; }
+
 .uk-navbar-nav > li.uk-active > a {
-  color: #F9F9F9; }
+  color: #F9F9F9;
+  font-family: Roboto;
+  font-size: 1.05em; }
 
 .uk-overlay-default {
   background: rgba(255, 255, 255, 0.23); }
@@ -117,5 +130,30 @@ hr {
 
 .mylabel {
   display: flex; }
+
+.uk-form-section {
+  height: 100%;
+  padding: 90px 0; }
+
+.uk-form-section-sign {
+  height: 100%;
+  padding: 60px 0; }
+
+.uk-form-inside-container {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #2F3061;
+  padding: 4%; }
+
+.uk-form-label-custom {
+  color: #F9F9F9; }
+
+.uk-input-custom {
+  border: 1.6px solid #343434; }
+
+.uk-alert-danger {
+  background: #aa8f94;
+  color: #642430;
+  border-radius: 10px; }
 
 /*# sourceMappingURL=style.css.map */

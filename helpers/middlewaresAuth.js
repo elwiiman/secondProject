@@ -7,7 +7,7 @@ exports.isAuth = (req, res, next) => {
 
 exports.toProfile = (req, res, next) => {
   if (req.isAuthenticated()) {
-    return res.redirect("/profile");
+    return res.redirect("/profile/home");
   }
   return next();
 };
