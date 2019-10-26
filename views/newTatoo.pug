@@ -10,18 +10,18 @@ block content
               p.authErr #{errorMessage}
           .uk-margin
             label(class="uk-form-label" for="exec_time") Name
-            input.uk-input(type='text', placeholder='Name for tatoo' name="name")
+            input.uk-input.uk-input-custom1(type='text', placeholder='Name for tatoo' name="name")
           .uk-margin
             label(class="uk-form-label" for="price") Price
-            input.uk-input(type='text', placeholder='Price' name="price")
+            input.uk-input.uk-input-custom1(type='text', placeholder='Price' name="price")
           .uk-margin
             label(class="uk-form-label" for="currency") Currency
-            select.uk-select(name="currency")
+            select.uk-select.uk-input-custom1(name="currency")
               option(value="MXN") MXN
               option(value="USD") USD 
           .uk-margin
             label(class="uk-form-label" for="exec_time") Execution Time
-            select.uk-select(name="exec_time")
+            select.uk-select.uk-input-custom1(name="exec_time")
               option(value=1) 1 Hour
               option(value=1.5) 1.5 Hours
               option(value=2) 2 Hours
@@ -29,16 +29,16 @@ block content
               option(value=3) 3 Hours
           .uk-margin
             label(class="uk-form-label" for="size") Size
-              select.uk-select(name="size")
+              select.uk-select.uk-input-custom1(name="size")
                 option(value="1 - 5 cm") 1 - 5 cm
                 option(value="6 - 10 cm") 6 - 10 cm
                 option(value="11 - 20 cm") 11 - 20 cm
                 option(value="21 - 30 cm") 21 - 30 cm
                 option(value="+30 cm") +30 cm                       
           .uk-margin
-            textarea.uk-textarea(rows='5', placeholder='Short description for tatoo' name="description")
+            textarea.uk-textarea.uk-input-custom1(rows='5', placeholder='Short description for tatoo' name="description")
           .uk-margin(uk-margin='')
             div(uk-form-custom='target: true')
               input(type='file' name="image"  uk-tooltip="Upload a single image")
-              input.uk-input.uk-form-width-medium(type='text', placeholder='Select file(s)', disabled='')
-        button.uk-button.uk-button-default Submit
+              input.uk-input.uk-form-width-medium(type='text', placeholder='Upload tatoo image', disabled='')
+        button.uk-button.uk-button-primary.button-important Create
