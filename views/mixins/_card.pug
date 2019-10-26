@@ -1,6 +1,6 @@
 mixin card(tatoo,fan)
   div
-    .uk-card.uk-card-default
+    .uk-card.uk-card-default.border-radius-card
       .uk-card-header
         .uk-grid-small.uk-flex-middle(uk-grid='')
           .uk-width-auto
@@ -32,4 +32,4 @@ mixin card(tatoo,fan)
       if fan
         .uk-card-footer 
           .uk-flex.uk-flex-center
-            a(href=`/tatoo/moreinfo/${tatoo._id}` class="uk-button uk-button-primary") View More +
+            a(href=`/tatoo/moreinfo/${tatoo._id}` class="uk-button uk-button-primary button-important") View More +
