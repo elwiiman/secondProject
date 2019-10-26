@@ -191,4 +191,17 @@ hr {
   background-color: #8a750e !important;
   border-color: #8a750e !important; }
 
+.fc-event, .fc-event-dot {
+  background-color: #47488d;
+  border-color: #47488d; }
+
+.uk-link, a {
+  color: #383970;
+  text-decoration: none;
+  cursor: pointer; }
+
+.uk-link-toggle:focus .uk-link, .uk-link-toggle:hover .uk-link, .uk-link:hover, a:hover {
+  color: #2c2d52;
+  text-decoration: underline; }
+
 /*# sourceMappingURL=style.css.map */

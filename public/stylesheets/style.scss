@@ -256,3 +256,19 @@ hr {
   background-color: rgb(138, 117, 14) !important;
   border-color: rgb(138, 117, 14) !important;
 }
+
+.fc-event, .fc-event-dot { 
+   background-color: rgb(71, 72, 141);
+   border-color: rgb(71, 72, 141);
+}
+
+.uk-link, a {
+  color: rgb(56, 57, 112);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.uk-link-toggle:focus .uk-link, .uk-link-toggle:hover .uk-link, .uk-link:hover, a:hover {
+  color: rgb(44, 45, 82);
+  text-decoration: underline;
+}
